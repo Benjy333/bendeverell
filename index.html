@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ben Deverell — Projects</title>
+<meta name="description" content="Brisbane-based builder of side projects: Ben's Trivia, Plus 1, Golf Booking and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --ink: #17181a;
+    --muted: #6b6e73;
+    --line: #e7e4dd;
+    --accent: #1f6f5c;
+    --accent-soft: #e6f1ed;
+    --live: #1f8a4c;
+    --proto: #b7791f;
+    --radius: 16px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121314;
+      --surface: #1a1b1d;
+      --ink: #f1efe9;
+      --muted: #9b9ea3;
+      --line: #2a2c2f;
+      --accent: #6cc7ac;
+      --accent-soft: #1c2f2a;
+      --live: #5fcf8f;
+      --proto: #e7b45a;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav ul a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; }
+  nav ul a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 110px 0 90px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--live); }
+  h1 {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(44px, 7vw, 78px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+  }
+  h1 em { color: var(--accent); }
+  .hero p { margin-top: 26px; font-size: 19px; color: var(--muted); max-width: 54ch; }
+  .cta { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); border-color: var(--ink); }
+  .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  /* Sections */
+  section { padding: 80px 0; border-top: 1px solid var(--line); }
+  .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+  h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 42px; letter-spacing: -0.01em; line-height: 1.1; }
+  .section-head p { color: var(--muted); font-size: 15px; }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex; flex-direction: column;
+    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover { border-color: color-mix(in srgb, var(--ink) 30%, var(--line)); transform: translateY(-2px); box-shadow: 0 10px 30px -18px rgba(0,0,0,.25); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+  .icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: grid; place-items: center;
+    font-size: 24px;
+    background: var(--accent-soft);
+  }
+  .status {
+    font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 999px; border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .status.live { color: var(--live); }
+  .status.proto { color: var(--proto); }
+  .status.work { color: var(--muted); }
+  .card h3 { font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
+  .card .sub { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .card p.desc { margin-top: 14px; font-size: 16px; }
+  .card ul { list-style: none; margin-top: 16px; display: grid; gap: 6px; }
+  .card li { font-size: 15px; color: var(--muted); padding-left: 18px; position: relative; }
+  .card li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); }
+  .links { margin-top: auto; padding-top: 22px; display: flex; gap: 18px; flex-wrap: wrap; }
+  .links a { font-size: 15px; font-weight: 600; text-decoration: none; color: var(--accent); }
+  .links a:hover { text-decoration: underline; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; align-items: start; }
+  .about p { color: var(--muted); margin-bottom: 16px; }
+  .about p strong { color: var(--ink); font-weight: 600; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+  .fact { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--surface); }
+  .fact b { display: block; font-size: 13px; color: var(--muted); font-weight: 500; }
+  .fact span { font-weight: 600; font-size: 15px; }
+
+  /* Contact */
+  .contact { text-align: center; padding: 100px 0; }
+  .contact h2 { font-size: clamp(36px, 5vw, 52px); }
+  .contact p { color: var(--muted); margin: 14px auto 32px; max-width: 46ch; }
+  .contact .cta { justify-content: center; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    nav ul { gap: 18px; }
+    nav ul li:first-child { display: none; }
+    .hero { padding: 72px 0 60px; }
+    .grid, .about { grid-template-columns: 1fr; }
+    .about { gap: 20px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    section { padding: 60px 0; }
+    h2 { font-size: 34px; }
+    .card { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Ben Deverell<span>.</span></a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Brisbane, Australia · building in public</div>
+    <h1>I build things people <em>actually use.</em></h1>
+    <p>SharePoint specialist by day, side-project builder by night. Here's what I'm working on — from a weekly quiz with players around the world to a dating app that bans swiping.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">See my projects ↓</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p>Live products, prototypes and day-job work</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- Ben's Trivia -->
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" aria-hidden="true">🧠</div>
+          <span class="status live">Live</span>
+        </div>
+        <h3>Ben's Trivia</h3>
+        <div class="sub">The Big Fat Sunday Quiz</div>
+        <p class="desc">A free 25-question quiz that drops every Sunday. Grown from a simple quiz into a full weekly product with players from around the world.</p>
+        <ul>
+          <li>Global leaderboard with country flags</li>
+          <li>Email subscriptions, question stats and fun facts</li>
+          <li>QR coasters in Brisbane bowls clubs and pubs</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">Resend</span><span class="tag">GitHub Pages</span>
+        </div>
+        <div class="links">
+          <a href="https://benstrivia.com" target="_blank" rel="noopener">Play the quiz →</a>
+          <a href="https://instagram.com/benstrivia" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </article>
+
+      <!-- Plus 1 -->
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" aria-hidden="true">💬</div>
+          <span class="status proto">Prototype</span>
+        </div>
+        <h3>Plus 1</h3>
+        <div class="sub">The no-swipe dating app</div>
+        <p class="desc">One match a day, no swiping. A dating app for Brisbane professionals built around trust — members are verified by referral or at in-person events.</p>
+        <ul>
+          <li>One daily match, max three conversations at once</li>
+          <li>Photos reveal progressively as you chat</li>
+          <li>Balanced community via a waitlist</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Product design</span><span class="tag">Clickable demo</span><span class="tag">Business model</span>
+        </div>
+        <div class="links">
+          <!-- TODO: replace # with your Plus 1 demo URL -->
+          <a href="#" target="_blank" rel="noopener">Try the demo →</a>
+          <!-- TODO: replace # with your pitch deck link -->
+          <a href="#" target="_blank" rel="noopener">Pitch deck</a>
+        </div>
+      </article>
+
+      <!-- Golf Booking -->
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" aria-hidden="true">⛳</div>
+          <span class="status live">Live</span>
+        </div>
+        <h3>Golf Booking</h3>
+        <div class="sub">Brisbane golf course finder</div>
+        <p class="desc">Compare Brisbane golf courses side by side — green fees, driving time from your suburb, and availability — then jump straight to booking.</p>
+        <ul>
+          <li>Suburb-based driving time estimates</li>
+          <li>Green fee comparisons and availability filters</li>
+          <li>Quick Book panel</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">GitHub Actions</span>
+        </div>
+        <div class="links">
+          <a href="https://benjy333.github.io/Golf-Booking" target="_blank" rel="noopener">Find a course →</a>
+          <a href="https://github.com/Benjy333/Golf-Booking" target="_blank" rel="noopener">Code</a>
+        </div>
+      </article>
+
+      <!-- SharePoint -->
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" aria-hidden="true">🗂️</div>
+          <span class="status work">Day job</span>
+        </div>
+        <h3>Document migration &amp; governance</h3>
+        <div class="sub">SharePoint Specialist, Sunwater</div>
+        <p class="desc">Leading a large-scale document migration and a rebuild of SharePoint governance — making sure the right information is easy to find and properly managed.</p>
+        <ul>
+          <li>Large-scale content migration planning and delivery</li>
+          <li>Information architecture and governance design</li>
+          <li>Document control and records management</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">SharePoint</span><span class="tag">Microsoft 365</span><span class="tag">Information management</span>
+        </div>
+        <div class="links">
+          <a href="#contact">Talk to me about it →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <h2>About me</h2>
+    <div>
+      <p>I'm <strong>Ben</strong> — originally from Ireland, now based in <strong>Brisbane</strong>. By day I'm a SharePoint Specialist in Document Control at Sunwater, where I'm leading a large document migration and rebuilding how SharePoint is governed.</p>
+      <p>Outside work I like turning ideas into real, working products. I'd rather ship something small and improve it every week than plan forever — which is how a simple trivia quiz became a weekly ritual for players around the world.</p>
+      <div class="facts">
+        <div class="fact"><b>Based in</b><span>Brisbane 🇦🇺</span></div>
+        <div class="fact"><b>From</b><span>Ireland 🇮🇪</span></div>
+        <div class="fact"><b>Day job</b><span>SharePoint</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>Got feedback on a project, an idea, or a venue that wants trivia coasters? I'd love to hear from you.</p>
+    <div class="cta">
+      <!-- TODO: put the email you want public here -->
+      <a class="btn primary" href="mailto:you@example.com">Email me</a>
+      <a class="btn" href="https://github.com/Benjy333" target="_blank" rel="noopener">GitHub</a>
+      <!-- TODO: replace with your LinkedIn URL, or delete this line -->
+      <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Ben Deverell</span>
+    <span>Made in Brisbane</span>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
