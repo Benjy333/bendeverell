@@ -388,21 +388,11 @@
   <section class="col intro">
     <h1>Ben Deverell</h1>
     <p>Welcome to my little patch of the internet. I'm a SharePoint specialist by day and a side-project builder by night, and this is where I keep track of everything I'm making.</p>
-    <p>I work in Document Control at <a href="https://www.sunwater.com.au" target="_blank" rel="noopener">Sunwater</a>, where I'm leading a large document migration and rebuilding SharePoint governance.</p>
+    <p>I work in Document Control at <a href="https://www.sunwater.com.au" target="_blank" rel="noopener">Sunwater</a>.</p>
 
-    <ul class="facts sans" id="facts">
-      <li>Writes a 25-question quiz every single Sunday</li>
-      <li>Believes in shipping small and improving weekly</li>
+    <ul class="facts sans">
       <li>Originally from Ireland, currently in Brisbane</li>
-      <li>Has strong opinions about folder structures</li>
-      <li class="more">Hand-delivers QR coasters to Brisbane bowls clubs</li>
-      <li class="more">Designing a dating app with no swiping allowed</li>
-      <li class="more">Compares green fees before every round of golf</li>
     </ul>
-    <button class="keep" id="keep" aria-expanded="false" aria-controls="facts">
-      <span>Keep going</span>
-      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 4.5 6 7.5 9 4.5"/></svg>
-    </button>
 
     <a class="subscribe" href="https://benstrivia.com" target="_blank" rel="noopener">
       <span>Play this week's Sunday Quiz</span>
@@ -694,14 +684,6 @@
       : window.matchMedia('(prefers-color-scheme: dark)').matches;
     root.dataset.theme = dark ? 'light' : 'dark';
     try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
-  });
-
-  // Keep going
-  var keep = document.getElementById('keep'), facts = document.getElementById('facts');
-  keep.addEventListener('click', function () {
-    var open = facts.classList.toggle('open');
-    keep.setAttribute('aria-expanded', open);
-    keep.querySelector('span').textContent = open ? 'Show less' : 'Keep going';
   });
 
   // Project scroller arrows
