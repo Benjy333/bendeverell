@@ -211,6 +211,15 @@
   .mini-idea .mi-note { margin-top: 14px; font-size: 14px; color: var(--soft); line-height: 1.5; }
   .mi-note b { color: var(--ink); font-weight: 600; }
 
+  .t-venue { background: linear-gradient(160deg, #0d2140, #071326); display: grid; place-items: center; }
+  .t-venue .lb { width: 158px; background: rgba(255,255,255,.04); border: 1px solid rgba(130,170,230,.25); border-radius: 10px; padding: 10px; font-family: Manrope, sans-serif; }
+  .t-venue .lb-h { font-weight: 800; font-size: 10px; color: #9cc0ff; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 8px; }
+  .t-venue .lb-r { display: grid; grid-template-columns: 16px 1fr 28px; align-items: center; gap: 6px; height: 22px; border-top: 1px solid rgba(255,255,255,.07); font-size: 10px; color: #dfe8f7; }
+  .t-venue .lb-r span { text-align: center; font-weight: 700; }
+  .t-venue .lb-r i { height: 6px; border-radius: 3px; background: linear-gradient(90deg, #3d7bd9, #8fb8ff); }
+  .t-venue .lb-r b { text-align: right; font-weight: 700; color: #f0c64a; }
+  .t-venue .play { position: absolute; right: 10px; bottom: 10px; width: 30px; height: 30px; border-radius: 50%; background: #ff0033; color: #fff; display: grid; place-items: center; font-size: 11px; padding-left: 2px; box-shadow: 0 3px 8px rgba(0,0,0,.35); }
+
   .t-bluff { background: radial-gradient(circle at 50% 35%, #24466b, #142a44); }
   .t-bluff .fan { position: absolute; left: 50%; top: 52%; width: 0; height: 0; }
   .t-bluff .c { position: absolute; width: 54px; height: 80px; left: -27px; top: -62px; border-radius: 7px; border: 3px solid #fff; transform-origin: 50% 140%; box-shadow: 0 4px 10px rgba(0,0,0,.35); }
@@ -408,7 +417,7 @@
   <!-- Projects -->
   <section class="panel" id="projects">
     <div class="ph">
-      <h2>Projects <span class="tag">5</span></h2>
+      <h2>Projects <span class="tag">6</span></h2>
       <div class="arrows">
         <button aria-label="Scroll left" data-dir="-1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
         <button aria-label="Scroll right" data-dir="1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
@@ -422,6 +431,20 @@
         <h3>Ben's Trivia</h3>
         <p>The Big Fat Sunday Quiz — 25 questions, global leaderboard.</p>
         <span class="status live">Live</span>
+      </a>
+      <a class="card" href="https://www.youtube.com/shorts/g4LxZb3ZO8U" target="_blank" rel="noopener">
+        <div class="thumb t-venue" aria-hidden="true">
+          <div class="lb"><div class="lb-h">🏆 Smartest Venue</div>
+            <div class="lb-r"><span>🥇</span><i style="width:73%"></i><b>73%</b></div>
+            <div class="lb-r"><span>🥈</span><i style="width:68%"></i><b>68%</b></div>
+            <div class="lb-r"><span>🥉</span><i style="width:65%"></i><b>65%</b></div>
+            <div class="lb-r"><span>4</span><i style="width:57%"></i><b>57%</b></div>
+          </div>
+          <div class="play">▶</div>
+        </div>
+        <h3>Brisbane's Smartest Venue</h3>
+        <p>A 6-week Ben's Trivia competition between Brisbane venues, ranked by average score.</p>
+        <span class="status live">Running · 18 Oct – 28 Nov</span>
       </a>
       <a class="card" href="https://www.instagram.com/wild.bluff/" target="_blank" rel="noopener">
         <div class="thumb t-bluff" aria-hidden="true">
@@ -599,6 +622,7 @@
     <div class="ph"><h2>Recent updates</h2></div>
     <!-- TODO: check these dates; add new entries at the top -->
     <ul class="log">
+      <li><time>Oct 2026</time><p><b>Ben's Trivia</b> — kicked off Brisbane's Smartest Venue 2026, a 6-week venue competition.</p></li>
       <li><time>Oct 2026</time><p><b>Ideas</b> — two Brisbane video series: theatre reviews and parkrun reviews.</p></li>
       <li><time>Oct 2026</time><p><b>Ideas</b> — sketched out the Wednesweek calendar.</p></li>
       <li><time>Oct 2026</time><p><b>bendeverell.com</b> — launched this site.</p></li>
