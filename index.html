@@ -302,7 +302,6 @@
   .stack span i { font-style: normal; color: var(--faint); margin-left: 6px; font-weight: 500; }
 
   /* About + contact */
-  .about p { color: var(--body); margin-bottom: 16px; font-size: 17px; }
   .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
   .links a { font: 600 14px Manrope, sans-serif; text-decoration: none; color: var(--ink); background: var(--chip); padding: 7px 14px; border-radius: 999px; transition: opacity .2s; }
   .links a:hover { opacity: .75; }
@@ -376,9 +375,6 @@
   <a href="#ideas" aria-label="Ideas" data-s="ideas">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Z"/><rect x="9" y="19.5" width="6" height="2.5" rx="1.25"/></svg>
   </a>
-  <a href="#about" aria-label="About" data-s="about">
-    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7.5" r="4.5"/><path d="M3.5 21c0-4.4 3.8-7.5 8.5-7.5s8.5 3.1 8.5 7.5c0 .6-.4 1-1 1h-15c-.6 0-1-.4-1-1Z"/></svg>
-  </a>
   <a href="#contact" aria-label="Contact" data-s="contact">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v.3l-10 6-10-6v-.3Z"/><path d="M2 9.1V17.5A2.5 2.5 0 0 0 4.5 20h15a2.5 2.5 0 0 0 2.5-2.5V9.1l-9.5 5.7a1 1 0 0 1-1 0L2 9.1Z"/></svg>
   </a>
@@ -392,7 +388,7 @@
   <section class="col intro">
     <h1>Ben Deverell</h1>
     <p>Welcome to my little patch of the internet. I'm a SharePoint specialist by day and a side-project builder by night, and this is where I keep track of everything I'm making.</p>
-    <p>I work in Document Control at <a href="https://www.sunwater.com.au" target="_blank" rel="noopener">Sunwater</a>, where I'm leading a large document migration and rebuilding SharePoint governance. <a href="#about">Read more.</a></p>
+    <p>I work in Document Control at <a href="https://www.sunwater.com.au" target="_blank" rel="noopener">Sunwater</a>, where I'm leading a large document migration and rebuilding SharePoint governance.</p>
 
     <ul class="facts sans" id="facts">
       <li>Writes a 25-question quiz every single Sunday</li>
@@ -472,7 +468,7 @@
         <p>Compare Brisbane courses by price and drive time.</p>
         <span class="status proto">Prototype</span>
       </a>
-      <a class="card" href="#about">
+      <a class="card" href="#timeline">
         <div class="thumb t-sp" aria-hidden="true">
           <div class="grid"><span></span><span></span><span class="doc"></span><span class="doc"></span><span></span><span></span></div>
         </div>
@@ -646,13 +642,6 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section class="panel about" id="about">
-    <div class="ph"><h2>About</h2></div>
-    <p>I grew up in Ireland and now live in Brisbane, where I work in Document Control at Sunwater. I'm leading a big document migration there and rebuilding how SharePoint is governed, so the right information is easy to find.</p>
-    <p>Outside work I like turning ideas into things people can use. I'd rather ship something small and improve it every week than plan forever. That's how a simple trivia quiz turned into a Sunday ritual for players around the world.</p>
-  </section>
-
   <!-- Contact -->
   <section class="panel" id="contact">
     <div class="ph"><h2>Say hello</h2></div>
@@ -734,7 +723,7 @@
 
   // Highlight the rail icon for the section in view
   var links = document.querySelectorAll('.rail a');
-  var ids = ['top', 'projects', 'ideas', 'about', 'contact'];
+  var ids = ['top', 'projects', 'ideas', 'contact'];
   function onScroll() {
     var current = 'top';
     ids.forEach(function (id) {
