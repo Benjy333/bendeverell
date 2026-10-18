@@ -174,6 +174,30 @@
   .t-sp .grid span.doc { background: #fff; border-radius: 3px; }
   .t-sp .grid span.doc::before { display: none; }
 
+  /* Client sites */
+  .clients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .client { text-decoration: none; display: flex; flex-direction: column; }
+  .win { border-radius: 10px; overflow: hidden; box-shadow: 0 1px 2px rgba(60,40,20,.08), 0 8px 20px -12px rgba(60,40,20,.35); transition: transform .25s ease; }
+  .client:hover .win { transform: translateY(-3px); }
+  .chrome { display: flex; align-items: center; gap: 4px; padding: 7px 8px; background: #ece6dd; }
+  .chrome i { width: 6px; height: 6px; border-radius: 50%; background: #cfc5b7; }
+  .chrome span { margin-left: 6px; flex: 1; background: #fff; border-radius: 4px; font: 600 8px Manrope, sans-serif; color: #8f867d; padding: 2px 6px; white-space: nowrap; overflow: hidden; }
+  .win .hero { height: 128px; padding: 16px 12px; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+  .win .hero b { font: 600 19px "Source Serif 4", Georgia, serif; line-height: 1.1; }
+  .win .hero em { font: 500 10px Manrope, sans-serif; font-style: normal; opacity: .85; }
+  .win .hero u { text-decoration: none; align-self: flex-start; margin-top: 8px; font: 700 9px Manrope, sans-serif; padding: 4px 9px; border-radius: 999px; }
+  .w-enery .hero { background: linear-gradient(150deg, #e9f0dc, #c9d9ad); color: #2f3b1f; }
+  .w-enery .hero u { background: #2f3b1f; color: #e9f0dc; }
+  .w-june .hero { background: linear-gradient(150deg, #f6e3c8, #e8c08e); color: #4a2e14; }
+  .w-june .hero u { background: #4a2e14; color: #f6e3c8; }
+  .w-bikes .hero { background: linear-gradient(150deg, #1f2a33, #0f161c); color: #f1f4f6; }
+  .w-bikes .hero b { font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: -0.02em; }
+  .w-bikes .hero u { background: #f2c230; color: #1a1a1a; }
+  .client h3 { font: 700 15px Manrope, sans-serif; margin-top: 14px; color: var(--ink); }
+  .client p { font-size: 15px; color: var(--body); line-height: 1.45; margin-top: 3px; flex: 1; }
+  .clients-cta { margin-top: 22px; font-size: 16px; color: var(--body); }
+  .clients-cta a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+
   .t-site { background: var(--chip); display: grid; place-items: center; font: 600 36px "Source Serif 4", serif; color: var(--soft); }
 
   .t-cal { background: linear-gradient(160deg, #efe6d6, #e2d3ba); display: grid; place-items: center; align-content: center; gap: 12px; }
@@ -282,6 +306,7 @@
     .pct { font-size: 28px; }
     .pct small { font-size: 16px; }
     .idea-head { flex-direction: column; gap: 4px; }
+    .clients { grid-template-columns: 1fr; gap: 26px; }
     .idea-head .status { order: -1; margin: 0 0 4px; }
     body { font-size: 17px; }
   }
@@ -397,6 +422,41 @@
         <span class="status live">Live</span>
       </a>
     </div>
+  </section>
+
+  <!-- Client work -->
+  <section class="panel" id="clients">
+    <div class="ph"><h2>Websites for local businesses <span class="tag">3</span></h2></div>
+    <div class="clients">
+      <a class="client" href="https://enerycafe.com/" target="_blank" rel="noopener">
+        <div class="win w-enery" aria-hidden="true">
+          <div class="chrome"><i></i><i></i><i></i><span>enerycafe.com</span></div>
+          <div class="hero"><b>ENERY Café</b><em>A little bit of everything you love</em><u>View menu</u></div>
+        </div>
+        <h3>ENERY Café</h3>
+        <p>Specialty coffee, ceremonial matcha and brunch in Kangaroo Point, Brisbane.</p>
+        <span class="status live">Live · enerycafe.com</span>
+      </a>
+      <a class="client" href="https://junescoffee.com/" target="_blank" rel="noopener">
+        <div class="win w-june" aria-hidden="true">
+          <div class="chrome"><i></i><i></i><i></i><span>junescoffee.com</span></div>
+          <div class="hero"><b>June's</b><em>Your morning ritual starts here</em><u>Visit us</u></div>
+        </div>
+        <h3>June's Cafe</h3>
+        <p>A neighbourhood cafe in East Brisbane serving Campos coffee from early.</p>
+        <span class="status live">Live · junescoffee.com</span>
+      </a>
+      <a class="client" href="https://davidsbikes.com/" target="_blank" rel="noopener">
+        <div class="win w-bikes" aria-hidden="true">
+          <div class="chrome"><i></i><i></i><i></i><span>davidsbikes.com</span></div>
+          <div class="hero"><b>David's Bikes</b><em>Ride further. Sweat less.</em><u>See the range</u></div>
+        </div>
+        <h3>David's Bikes</h3>
+        <p>Fat-tyre e-bikes in Stillorgan, Dublin, with models, trade pricing and test rides.</p>
+        <span class="status live">Live · davidsbikes.com</span>
+      </a>
+    </div>
+    <p class="clients-cta">Need a website for your business? <a href="#contact">Get in touch</a>.</p>
   </section>
 
   <!-- Ideas -->
