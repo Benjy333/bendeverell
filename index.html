@@ -210,6 +210,26 @@
   .perks li { font-size: 16px; color: var(--body); line-height: 1.5; padding-left: 18px; position: relative; }
   .perks li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   .perks b { color: var(--ink); font-weight: 600; }
+  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: stretch; margin-top: 16px; }
+  .vs-col { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .vs-col.new { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+  .vs-label { font: 700 13px Manrope, sans-serif; color: var(--soft); margin-bottom: 10px; }
+  .vs-col.new .vs-label { color: var(--accent); }
+  .days { display: flex; gap: 4px; }
+  .days span { flex: 1; max-width: 30px; height: 26px; border-radius: 6px; display: grid; place-items: center; font: 700 11px Manrope, sans-serif; }
+  .days .d { background: var(--chip); color: var(--ink); }
+  .days .o { background: var(--accent); color: var(--bg); }
+  .pct { font: 700 36px Manrope, sans-serif; letter-spacing: -0.03em; margin-top: 14px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .pct small { font-size: 20px; color: var(--soft); margin-left: 1px; }
+  .vs-sub { font: 600 13px Manrope, sans-serif; color: var(--soft); margin-top: 6px; }
+  .bar { height: 6px; border-radius: 3px; background: var(--chip); margin-top: 12px; overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 3px; background: var(--soft); }
+  .vs-col.new .bar i { background: var(--accent); }
+  .yr { font: 600 13px Manrope, sans-serif; color: var(--soft); margin-top: 10px; }
+  .yr b { color: var(--ink); font-size: 15px; }
+  .vs-mid { align-self: center; font: 700 12px Manrope, sans-serif; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+  .vs-sum { margin-top: 14px; font-size: 16px; color: var(--body); }
+  .vs-sum b { color: var(--ink); font-weight: 600; }
   .rhyme { margin-top: 20px; font-style: italic; color: var(--soft); font-size: 16px; border-left: 2px solid var(--line); padding-left: 14px; }
 
   /* Updates list */
@@ -254,6 +274,13 @@
     .thumb { height: 180px; }
     .log li { grid-template-columns: 1fr; gap: 2px; }
     .cal-wrap { grid-template-columns: 1fr; }
+    .vs { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vs-mid { display: none; }
+    .vs-col { padding: 12px; }
+    .days { gap: 3px; }
+    .days span { height: 22px; font-size: 10px; }
+    .pct { font-size: 28px; }
+    .pct small { font-size: 16px; }
     .idea-head { flex-direction: column; gap: 4px; }
     .idea-head .status { order: -1; margin: 0 0 4px; }
     body { font-size: 17px; }
@@ -398,11 +425,32 @@
         </div>
       </div>
 
+      <div class="vs" aria-label="Share of days worked: today versus Wednesweek">
+        <div class="vs-col">
+          <div class="vs-label">Today</div>
+          <div class="days"><span class="d">M</span><span class="d">T</span><span class="d">W</span><span class="d">T</span><span class="d">F</span><span class="o">S</span><span class="o">S</span></div>
+          <div class="pct">71.4<small>%</small></div>
+          <div class="vs-sub">of days are work days: 5 of 7</div>
+          <div class="bar"><i style="width:71.4%"></i></div>
+          <div class="yr"><b>260</b> work days a year</div>
+        </div>
+        <div class="vs-mid" aria-hidden="true">vs</div>
+        <div class="vs-col new">
+          <div class="vs-label">Wednesweek</div>
+          <div class="days"><span class="d">M</span><span class="d">T</span><span class="d">T</span><span class="d">F</span><span class="o">S</span><span class="o">S</span></div>
+          <div class="pct">66.7<small>%</small></div>
+          <div class="vs-sub">of days are work days: 4 of 6</div>
+          <div class="bar"><i style="width:66.7%"></i></div>
+          <div class="yr"><b>240</b> work days a year</div>
+        </div>
+      </div>
+      <p class="vs-sum"><b>20 fewer working days a year</b>, which is about <b>7.7% less work</b> and 125 days off instead of 105.</p>
+
       <ul class="perks">
         <li><b>4-day work week.</b> Monday, Tuesday, Thursday and Friday, then the weekend. No more hump day.</li>
         <li><b>Every month is the same.</b> 5 weeks × 6 days = 30 days, with no more random short months.</li>
         <li><b>Dates never move.</b> The 1st is always a Monday and every multiple of 6 is a Sunday, so planning is easy.</li>
-        <li><b>Less work.</b> 4 work days in every 6 instead of 5 in 7, or about 240 working days a year instead of 260.</li>
+        <li><b>Less work.</b> Work days drop from 71.4% of the week to 66.7%, which works out at 240 working days a year instead of 260.</li>
         <li><b>Still adds up.</b> 12 months × 30 days = 360, plus Wednesweek = 365. Halloween moves to 30 October.</li>
       </ul>
       <p class="rhyme">“Thirty days has January, February, March… and all the rest, except for Wednesweek alone.”</p>
@@ -451,6 +499,7 @@
       <a href="mailto:you@example.com">Email</a>
       <a href="https://github.com/Benjy333" target="_blank" rel="noopener">GitHub</a>
       <a href="https://instagram.com/benstrivia" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://boxd.it/1saXt" target="_blank" rel="noopener">Letterboxd</a>
       <!-- TODO: replace with your LinkedIn URL, or delete -->
       <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
