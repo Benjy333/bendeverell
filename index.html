@@ -199,8 +199,11 @@
   .clients-cta a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
 
   /* Photos */
-  .ph-tabs { color: var(--ink) !important; }
-  .ph-tabs .on { color: var(--ink); }
+  .ph-tabs { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .ptab { border: 0; background: none; padding: 0; cursor: pointer; font: 700 19px Manrope, sans-serif; letter-spacing: -0.01em; color: var(--faint); transition: color .2s; }
+  .ptab:hover { color: var(--soft); }
+  .ptab.on { color: var(--ink); }
+  .photos[hidden] { display: none; }
   .photos { gap: 18px; }
   .photo { flex: 0 0 240px; height: 300px; scroll-snap-align: start; position: relative; border: 0; padding: 0; border-radius: 12px; overflow: hidden; cursor: zoom-in; background: var(--chip);
     box-shadow: 0 1px 2px rgba(60,40,20,.08), 0 8px 20px -12px rgba(60,40,20,.35); }
@@ -394,6 +397,9 @@
     .clients { grid-template-columns: 1fr; gap: 26px; }
     .mini-ideas { grid-template-columns: 1fr; }
     .photo { flex-basis: 200px; height: 260px; }
+    .ptab { font-size: 16px; }
+    #photos .ph { align-items: flex-start; }
+    #photos .arrows { display: none; }
     .acc summary { grid-template-columns: 36px 1fr 16px; gap: 12px; padding: 12px; }
     .acc summary .status { display: none; }
     .acc-ico { width: 36px; height: 36px; font-size: 18px; }
@@ -656,13 +662,13 @@
   <!-- Photos -->
   <section class="panel" id="photos">
     <div class="ph">
-      <h2 class="ph-tabs"><span class="on">Brisbane's Smartest Venue</span></h2>
+      <div class="ph-tabs" role="tablist" aria-label="Photo sets"><button class="ptab on" role="tab" aria-selected="true" data-set="venue">Smartest Venue</button><button class="ptab" role="tab" aria-selected="false" data-set="trivia">Ben's Trivia</button><button class="ptab" role="tab" aria-selected="false" data-set="bluff">Wild Bluff</button><button class="ptab" role="tab" aria-selected="false" data-set="life">Life</button></div>
       <div class="arrows">
-        <button aria-label="Scroll photos left" data-target="photoScroller" data-dir="-1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
-        <button aria-label="Scroll photos right" data-target="photoScroller" data-dir="1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
+        <button aria-label="Scroll photos left" data-photos="1" data-dir="-1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
+        <button aria-label="Scroll photos right" data-photos="1" data-dir="1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
       </div>
     </div>
-    <div class="scroller photos" id="photoScroller">
+    <div class="scroller photos" id="ps-venue" data-set="venue">
         <button class="photo" data-src="photos/sv-sea-legs.jpg" data-title="Sea Legs Brewing">
           <img src="photos/sv-sea-legs.jpg" alt="Sea Legs Brewing" loading="lazy" style="object-position:center 30%">
           <span>Sea Legs Brewing</span>
@@ -690,6 +696,64 @@
         <button class="photo" data-src="photos/sv-leaderboard.jpg" data-title="The leaderboard">
           <img src="photos/sv-leaderboard.jpg" alt="The leaderboard" loading="lazy" style="object-position:center top">
           <span>The leaderboard</span>
+        </button>
+    </div>
+    <div class="scroller photos" id="ps-trivia" data-set="trivia" hidden>
+        <button class="photo" data-src="photos/bt-trivia-night.jpg" data-title="Trivia night out">
+          <img src="photos/bt-trivia-night.jpg" alt="Trivia night out" loading="lazy" style="object-position:center">
+          <span>Trivia night out</span>
+        </button>
+        <button class="photo" data-src="photos/bt-rainbow-brisbane.jpg" data-title="Rainbow over Brisbane">
+          <img src="photos/bt-rainbow-brisbane.jpg" alt="Rainbow over Brisbane" loading="lazy" style="object-position:left center">
+          <span>Rainbow over Brisbane</span>
+        </button>
+        <button class="photo" data-src="photos/bt-yankee-stadium.jpg" data-title="Yankee Stadium, New York">
+          <img src="photos/bt-yankee-stadium.jpg" alt="Yankee Stadium, New York" loading="lazy" style="object-position:center">
+          <span>Yankee Stadium, New York</span>
+        </button>
+        <button class="photo" data-src="photos/bt-times-square.jpg" data-title="Times Square, New York">
+          <img src="photos/bt-times-square.jpg" alt="Times Square, New York" loading="lazy" style="object-position:center 70%">
+          <span>Times Square, New York</span>
+        </button>
+        <button class="photo" data-src="photos/bt-moma.jpg" data-title="MoMA, New York">
+          <img src="photos/bt-moma.jpg" alt="MoMA, New York" loading="lazy" style="object-position:center 75%">
+          <span>MoMA, New York</span>
+        </button>
+    </div>
+    <div class="scroller photos" id="ps-bluff" data-set="bluff" hidden>
+        <button class="photo" data-src="photos/wb-sydney.jpg" data-title="Sydney">
+          <img src="photos/wb-sydney.jpg" alt="Sydney" loading="lazy" style="object-position:center 80%">
+          <span>Sydney</span>
+        </button>
+        <button class="photo" data-src="photos/wb-beach.jpg" data-title="A hand at the beach">
+          <img src="photos/wb-beach.jpg" alt="A hand at the beach" loading="lazy" style="object-position:center 70%">
+          <span>A hand at the beach</span>
+        </button>
+        <button class="photo" data-src="photos/wb-call-for-artists.jpg" data-title="Call for artists">
+          <img src="photos/wb-call-for-artists.jpg" alt="Call for artists" loading="lazy" style="object-position:center">
+          <span>Call for artists</span>
+        </button>
+        <button class="photo" data-src="photos/wb-red-fox.jpg" data-title="Red Fox card">
+          <img src="photos/wb-red-fox.jpg" alt="Red Fox card" loading="lazy" style="object-position:center">
+          <span>Red Fox card</span>
+        </button>
+        <button class="photo" data-src="photos/wb-blue-whale.jpg" data-title="Blue Whale card">
+          <img src="photos/wb-blue-whale.jpg" alt="Blue Whale card" loading="lazy" style="object-position:center">
+          <span>Blue Whale card</span>
+        </button>
+        <button class="photo" data-src="photos/wb-green-frog.jpg" data-title="Green Frog card">
+          <img src="photos/wb-green-frog.jpg" alt="Green Frog card" loading="lazy" style="object-position:center">
+          <span>Green Frog card</span>
+        </button>
+        <button class="photo" data-src="photos/wb-yellow-croc.jpg" data-title="Yellow Croc card">
+          <img src="photos/wb-yellow-croc.jpg" alt="Yellow Croc card" loading="lazy" style="object-position:center">
+          <span>Yellow Croc card</span>
+        </button>
+    </div>
+    <div class="scroller photos" id="ps-life" data-set="life" hidden>
+        <button class="photo" data-src="photos/life-jacaranda-picnic.jpg" data-title="Jacaranda picnic">
+          <img src="photos/life-jacaranda-picnic.jpg" alt="Jacaranda picnic" loading="lazy" style="object-position:center">
+          <span>Jacaranda picnic</span>
         </button>
     </div>
   </section>
@@ -786,8 +850,16 @@
   // Scroller arrows (projects + photos)
   document.querySelectorAll('.arrows button').forEach(function (b) {
     b.addEventListener('click', function () {
-      var t = document.getElementById(b.dataset.target || 'scroller');
+      var t = b.dataset.photos ? document.querySelector('#photos .photos:not([hidden])') : document.getElementById('scroller');
       t.scrollBy({ left: +b.dataset.dir * 240, behavior: 'smooth' });
+    });
+  });
+
+  // Photo set tabs
+  document.querySelectorAll('.ptab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.ptab').forEach(function (x) { x.classList.toggle('on', x === tab); x.setAttribute('aria-selected', x === tab); });
+      document.querySelectorAll('#photos .photos').forEach(function (sc) { sc.hidden = sc.dataset.set !== tab.dataset.set; });
     });
   });
 
