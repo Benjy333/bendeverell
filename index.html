@@ -176,6 +176,42 @@
 
   .t-site { background: var(--chip); display: grid; place-items: center; font: 600 36px "Source Serif 4", serif; color: var(--soft); }
 
+  .t-cal { background: linear-gradient(160deg, #efe6d6, #e2d3ba); display: grid; place-items: center; align-content: center; gap: 12px; }
+  .t-cal .mini { display: grid; grid-template-columns: repeat(6, 20px); gap: 4px; background: #fffaf2; padding: 10px; border-radius: 10px; box-shadow: 0 6px 14px -8px rgba(80,55,20,.4); font: 700 9px Manrope, sans-serif; text-align: center; color: #4a4239; }
+  .t-cal .mini b { color: #a39886; font-weight: 700; }
+  .t-cal .mini span { height: 20px; display: grid; place-items: center; border-radius: 5px; background: #f1e9dc; }
+  .t-cal .mini span.w { background: #6f7d4f; color: #fff; }
+  .t-cal .nowed { font: 700 11px Manrope, sans-serif; color: #7a6c58; text-decoration: line-through; text-decoration-color: #c0563f; text-decoration-thickness: 2px; }
+
+  /* Ideas */
+  .status.idea-s::before { background: #8a7bd1; }
+  .idea-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .idea h3 { font: 700 20px Manrope, sans-serif; letter-spacing: -0.01em; }
+  .idea .lede { color: var(--body); margin-top: 6px; font-size: 17px; }
+  .idea-head .status { margin-top: 6px; }
+  .cal-wrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; margin-top: 26px; }
+  .cal { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .cal-title { font: 700 14px Manrope, sans-serif; display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .cal-title span { font-weight: 600; font-size: 12px; color: var(--faint); }
+  .cal-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; font: 600 12px Manrope, sans-serif; text-align: center; }
+  .cal-grid b { font-size: 11px; color: var(--soft); padding-bottom: 2px; }
+  .cal-grid span { padding: 6px 0; border-radius: 6px; background: var(--chip); color: var(--ink); }
+  .cal-grid span.we { background: var(--accent); color: var(--bg); }
+  .cal-key { display: flex; gap: 14px; margin-top: 12px; font: 600 12px Manrope, sans-serif; color: var(--soft); }
+  .cal-key i { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .k-work { background: var(--chip); border: 1px solid var(--line); }
+  .k-wknd { background: var(--accent); }
+  .wed-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; font: 600 12px Manrope, sans-serif; text-align: center; }
+  .wed-row span { padding: 9px 0; border-radius: 6px; background: #c9a24a; color: #fff; }
+  .wed-row span.leap { background: transparent; border: 1px dashed #c9a24a; color: #c9a24a; }
+  .wed-row span.ny { background: #c0563f; }
+  .wed-note { font-size: 14px; color: var(--body); line-height: 1.5; margin-top: 12px; }
+  .perks { list-style: none; margin-top: 24px; display: grid; gap: 10px; }
+  .perks li { font-size: 16px; color: var(--body); line-height: 1.5; padding-left: 18px; position: relative; }
+  .perks li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .perks b { color: var(--ink); font-weight: 600; }
+  .rhyme { margin-top: 20px; font-style: italic; color: var(--soft); font-size: 16px; border-left: 2px solid var(--line); padding-left: 14px; }
+
   /* Updates list */
   .log { list-style: none; }
   .log li { display: grid; grid-template-columns: 90px 1fr; gap: 18px; padding: 13px 0; border-top: 1px solid var(--line); }
@@ -217,6 +253,9 @@
     .card { flex-basis: 180px; }
     .thumb { height: 180px; }
     .log li { grid-template-columns: 1fr; gap: 2px; }
+    .cal-wrap { grid-template-columns: 1fr; }
+    .idea-head { flex-direction: column; gap: 4px; }
+    .idea-head .status { order: -1; margin: 0 0 4px; }
     body { font-size: 17px; }
   }
 </style>
@@ -229,6 +268,9 @@
   </a>
   <a href="#projects" aria-label="Projects" data-s="projects">
     <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
+  </a>
+  <a href="#ideas" aria-label="Ideas" data-s="ideas">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Z"/><rect x="9" y="19.5" width="6" height="2.5" rx="1.25"/></svg>
   </a>
   <a href="#about" aria-label="About" data-s="about">
     <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7.5" r="4.5"/><path d="M3.5 21c0-4.4 3.8-7.5 8.5-7.5s8.5 3.1 8.5 7.5c0 .6-.4 1-1 1h-15c-.6 0-1-.4-1-1Z"/></svg>
@@ -312,6 +354,15 @@
         <p>Large-scale migration and governance rebuild at Sunwater.</p>
         <span class="status">Day job</span>
       </a>
+      <a class="card" href="#ideas">
+        <div class="thumb t-cal" aria-hidden="true">
+          <div class="mini"><b>M</b><b>T</b><b>T</b><b>F</b><b>S</b><b>S</b><span>1</span><span>2</span><span>3</span><span>4</span><span class="w">5</span><span class="w">6</span><span>7</span><span>8</span><span>9</span><span>10</span><span class="w">11</span><span class="w">12</span></div>
+          <div class="nowed">No Wednesday</div>
+        </div>
+        <h3>Wednesweek Calendar</h3>
+        <p>Six-day weeks, 30-day months, a four-day work week.</p>
+        <span class="status idea-s">Idea</span>
+      </a>
       <a class="card" href="#top">
         <div class="thumb t-site" aria-hidden="true">BD</div>
         <h3>bendeverell.com</h3>
@@ -321,11 +372,49 @@
     </div>
   </section>
 
+  <!-- Ideas -->
+  <section class="panel" id="ideas">
+    <div class="ph"><h2>Ideas <span class="tag">1</span></h2></div>
+
+    <article class="idea">
+      <div class="idea-head">
+        <div>
+          <h3>The Wednesweek Calendar</h3>
+          <p class="lede">What if we just… deleted Wednesday? A tidier calendar with six-day weeks, identical 30-day months and a four-day working week.</p>
+        </div>
+        <span class="status idea-s">Idea</span>
+      </div>
+
+      <div class="cal-wrap">
+        <div class="cal" aria-label="Example month: every month looks exactly like this">
+          <div class="cal-title">Every month <span>30 days</span></div>
+          <div class="cal-grid" id="calGrid"></div>
+          <div class="cal-key"><span><i class="k-work"></i>Work day</span><span><i class="k-wknd"></i>Weekend</span></div>
+        </div>
+        <div class="cal wed">
+          <div class="cal-title">Wednesweek <span>end of year</span></div>
+          <div class="wed-row" id="wedRow"></div>
+          <p class="wed-note">Five bonus holiday days after December for Christmas and New Year, plus a 6th in leap years. New Year's Day is the 5th of Wednesweek.</p>
+        </div>
+      </div>
+
+      <ul class="perks">
+        <li><b>4-day work week.</b> Monday, Tuesday, Thursday and Friday, then the weekend. No more hump day.</li>
+        <li><b>Every month is the same.</b> 5 weeks × 6 days = 30 days, with no more random short months.</li>
+        <li><b>Dates never move.</b> The 1st is always a Monday and every multiple of 6 is a Sunday, so planning is easy.</li>
+        <li><b>Less work.</b> 4 work days in every 6 instead of 5 in 7, or about 240 working days a year instead of 260.</li>
+        <li><b>Still adds up.</b> 12 months × 30 days = 360, plus Wednesweek = 365. Halloween moves to 30 October.</li>
+      </ul>
+      <p class="rhyme">“Thirty days has January, February, March… and all the rest, except for Wednesweek alone.”</p>
+    </article>
+  </section>
+
   <!-- Updates -->
   <section class="panel">
     <div class="ph"><h2>Recent updates</h2></div>
     <!-- TODO: check these dates; add new entries at the top -->
     <ul class="log">
+      <li><time>Oct 2026</time><p><b>Ideas</b> — sketched out the Wednesweek calendar.</p></li>
       <li><time>Oct 2026</time><p><b>bendeverell.com</b> — launched this site.</p></li>
       <li><time>Aug 2026</time><p><b>Plus 1</b> — matches now need both people to say yes; new logo and pitch deck.</p></li>
       <li><time>Jul 2026</time><p><b>Ben's Trivia</b> — QR coasters landed in Brisbane bowls clubs.</p></li>
@@ -397,9 +486,20 @@
     b.addEventListener('click', function () { sc.scrollBy({ left: +b.dataset.dir * 222, behavior: 'smooth' }); });
   });
 
+  // Wednesweek calendar
+  (function () {
+    var g = document.getElementById('calGrid'), html = '';
+    ['Mon','Tue','Thu','Fri','Sat','Sun'].forEach(function (d) { html += '<b>' + d + '</b>'; });
+    for (var i = 1; i <= 30; i++) html += '<span' + (i % 6 === 5 || i % 6 === 0 ? ' class="we"' : '') + '>' + i + '</span>';
+    g.innerHTML = html;
+    var w = document.getElementById('wedRow'), h2 = '';
+    for (var j = 1; j <= 6; j++) h2 += '<span' + (j === 6 ? ' class="leap" title="Leap years only"' : j === 5 ? ' class="ny" title="New Year\'s Day"' : '') + '>' + (j === 6 ? '(6)' : j) + '</span>';
+    w.innerHTML = h2;
+  })();
+
   // Highlight the rail icon for the section in view
   var links = document.querySelectorAll('.rail a');
-  var ids = ['top', 'projects', 'about', 'contact'];
+  var ids = ['top', 'projects', 'ideas', 'about', 'contact'];
   function onScroll() {
     var current = 'top';
     ids.forEach(function (id) {
