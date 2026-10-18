@@ -198,6 +198,25 @@
   .clients-cta { margin-top: 22px; font-size: 16px; color: var(--body); }
   .clients-cta a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
 
+  /* Ideas accordion */
+  .accs { display: grid; gap: 10px; }
+  .acc { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s; }
+  .acc[open] { border-color: var(--faint); }
+  .acc summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 40px 1fr auto 18px; align-items: center; gap: 14px; padding: 14px 16px; }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary:hover .acc-txt b { color: var(--accent); }
+  .acc-ico { width: 40px; height: 40px; border-radius: 10px; background: var(--chip); display: grid; place-items: center; font-size: 20px; }
+  .acc-txt { display: flex; flex-direction: column; min-width: 0; }
+  .acc-txt b { font: 700 16px Manrope, sans-serif; letter-spacing: -0.01em; color: var(--ink); transition: color .2s; }
+  .acc-txt small { font-size: 15px; color: var(--body); line-height: 1.45; margin-top: 2px; }
+  .acc-chev { width: 16px; height: 16px; color: var(--soft); transition: transform .25s; }
+  .acc[open] .acc-chev { transform: rotate(180deg); }
+  .acc-body { padding: 4px 16px 20px; border-top: 1px solid var(--line); animation: fade .3s ease both; }
+  .acc-body .cal-wrap { margin-top: 18px; }
+  .acc-p { font-size: 16px; color: var(--body); margin-top: 14px; }
+  .acc-body .mi-label { margin-top: 16px; }
+  .acc-body .mi-note { margin-top: 14px; font-size: 15px; color: var(--soft); line-height: 1.5; }
+
   /* Smaller idea cards */
   .mini-ideas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
   .mini-idea { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; }
@@ -357,6 +376,10 @@
     .idea-head { flex-direction: column; gap: 4px; }
     .clients { grid-template-columns: 1fr; gap: 26px; }
     .mini-ideas { grid-template-columns: 1fr; }
+    .acc summary { grid-template-columns: 36px 1fr 16px; gap: 12px; padding: 12px; }
+    .acc summary .status { display: none; }
+    .acc-ico { width: 36px; height: 36px; font-size: 18px; }
+    .acc-body { padding: 4px 12px 16px; }
     .socials { grid-template-columns: 1fr; }
     .idea-head .status { order: -1; margin: 0 0 4px; }
     body { font-size: 17px; }
@@ -466,7 +489,7 @@
         <p>Large-scale migration and governance rebuild at Sunwater.</p>
         <span class="status">Day job</span>
       </a>
-      <a class="card" href="#ideas">
+      <a class="card" href="#wednesweek" onclick="document.getElementById('wednesweek').open=true">
         <div class="thumb t-cal" aria-hidden="true">
           <div class="mini"><b>M</b><b>T</b><b>T</b><b>F</b><b>S</b><b>S</b><span>1</span><span>2</span><span>3</span><span>4</span><span class="w">5</span><span class="w">6</span><span>7</span><span>8</span><span>9</span><span>10</span><span class="w">11</span><span class="w">12</span></div>
           <div class="nowed">No Wednesday</div>
@@ -523,15 +546,15 @@
   <section class="panel" id="ideas">
     <div class="ph"><h2>Ideas <span class="tag">3</span></h2></div>
 
-    <article class="idea">
-      <div class="idea-head">
-        <div>
-          <h3>The Wednesweek Calendar</h3>
-          <p class="lede">What if we just… deleted Wednesday? A tidier calendar with six-day weeks, identical 30-day months and a four-day working week.</p>
-        </div>
+    <div class="accs">
+    <details class="acc" id="wednesweek">
+      <summary>
+        <span class="acc-ico" aria-hidden="true">📅</span>
+        <span class="acc-txt"><b>The Wednesweek Calendar</b><small>What if we just deleted Wednesday? Six-day weeks, identical 30-day months and a four-day working week.</small></span>
         <span class="status idea-s">Idea</span>
-      </div>
-
+        <svg class="acc-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+      </summary>
+      <div class="acc-body">
       <div class="cal-wrap">
         <div class="cal" aria-label="Example month: every month looks exactly like this">
           <div class="cal-title">Every month <span>30 days</span></div>
@@ -574,32 +597,38 @@
         <li><b>Still adds up.</b> 12 months × 30 days = 360, plus Wednesweek = 365. Halloween moves to 30 October.</li>
       </ul>
       <p class="rhyme">“Thirty days has January, February, March… and all the rest, except for Wednesweek alone.”</p>
-    </article>
+      </div>
+    </details>
 
-    <div class="mini-ideas">
-      <article class="mini-idea">
-        <div class="mi-top">
-          <div class="tile mi-tile" aria-hidden="true">🎭</div>
-          <span class="status idea-s">Idea</span>
-        </div>
-        <h3>What's On in Brisbane: Theatre Reviews</h3>
-        <p>A weekly or fortnightly 60-second segment reviewing Brisbane theatre, musicals and live shows. Local coverage of theatre is much thinner than for food and hospitality.</p>
+    <details class="acc">
+      <summary>
+        <span class="acc-ico" aria-hidden="true">🎭</span>
+        <span class="acc-txt"><b>What's On in Brisbane: Theatre Reviews</b><small>A weekly or fortnightly 60-second segment reviewing Brisbane theatre, musicals and live shows.</small></span>
+        <span class="status idea-s">Idea</span>
+        <svg class="acc-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+      </summary>
+      <div class="acc-body">
+        <p class="acc-p">Local coverage of theatre is much thinner than for food and hospitality, and productions are keen for exposure.</p>
         <div class="mi-label">Each show is rated on</div>
         <div class="chips"><span>Story</span><span>Acting</span><span>Production</span><span>Value for money</span></div>
         <p class="mi-note"><b>The twist:</b> one consistent reviewer as the face of the segment, with strong opinions and honest, balanced criticism, so the ratings mean something from show to show.</p>
-      </article>
+      </div>
+    </details>
 
-      <article class="mini-idea">
-        <div class="mi-top">
-          <div class="tile mi-tile" aria-hidden="true">🏃</div>
-          <span class="status idea-s">Idea</span>
-        </div>
-        <h3>Parkrun Reviews: Brisbane &amp; SEQ</h3>
-        <p>Run every parkrun around Brisbane and South East Queensland, film it, and rank them, so people can pick their next Saturday run and see their local one featured.</p>
+    <details class="acc">
+      <summary>
+        <span class="acc-ico" aria-hidden="true">🏃</span>
+        <span class="acc-txt"><b>Parkrun Reviews: Brisbane &amp; SEQ</b><small>Run, film and rank every parkrun around Brisbane and South East Queensland.</small></span>
+        <span class="status idea-s">Idea</span>
+        <svg class="acc-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+      </summary>
+      <div class="acc-body">
+        <p class="acc-p">So people can pick their next Saturday run and see their local one featured.</p>
         <div class="mi-label">Each parkrun is rated on</div>
         <div class="chips"><span>Parking</span><span>Nearby cafés</span><span>Scenery</span><span>Shade</span><span>Pram-friendly</span><span>Difficulty</span><span>Beginner-friendly</span></div>
         <p class="mi-note"><b>Formats:</b> short-form series, an interactive map, and lists like "Best for beginners", "Most scenic" and "Best for a PB".</p>
-      </article>
+      </div>
+    </details>
     </div>
   </section>
 
