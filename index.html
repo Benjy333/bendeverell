@@ -211,6 +211,16 @@
   .mini-idea .mi-note { margin-top: 14px; font-size: 14px; color: var(--soft); line-height: 1.5; }
   .mi-note b { color: var(--ink); font-weight: 600; }
 
+  .t-bluff { background: radial-gradient(circle at 50% 35%, #24466b, #142a44); }
+  .t-bluff .fan { position: absolute; left: 50%; top: 52%; width: 0; height: 0; }
+  .t-bluff .c { position: absolute; width: 54px; height: 80px; left: -27px; top: -62px; border-radius: 7px; border: 3px solid #fff; transform-origin: 50% 140%; box-shadow: 0 4px 10px rgba(0,0,0,.35); }
+  .t-bluff .r { background: #c8372d; transform: rotate(-30deg); }
+  .t-bluff .y { background: #e5b52b; transform: rotate(-15deg); }
+  .t-bluff .g { background: #3f8f3a; transform: rotate(0deg); }
+  .t-bluff .b { background: #2e7cc4; transform: rotate(15deg); }
+  .t-bluff .bw { background: repeating-linear-gradient(45deg, #f2efe8 0 4px, #2b2b2b 4px 6px); transform: rotate(30deg); }
+  .t-bluff .shout { position: absolute; left: 0; right: 0; bottom: 20px; text-align: center; font: 800 22px Manrope, sans-serif; color: #fff; letter-spacing: -0.01em; transform: rotate(-4deg); text-shadow: 0 2px 0 #c8372d; }
+
   .t-site { background: var(--chip); display: grid; place-items: center; font: 600 36px "Source Serif 4", serif; color: var(--soft); }
 
   .t-cal { background: linear-gradient(160deg, #efe6d6, #e2d3ba); display: grid; place-items: center; align-content: center; gap: 12px; }
@@ -379,7 +389,7 @@
   <!-- Projects -->
   <section class="panel" id="projects">
     <div class="ph">
-      <h2>Projects <span class="tag">4</span></h2>
+      <h2>Projects <span class="tag">5</span></h2>
       <div class="arrows">
         <button aria-label="Scroll left" data-dir="-1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
         <button aria-label="Scroll right" data-dir="1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
@@ -393,6 +403,15 @@
         <h3>Ben's Trivia</h3>
         <p>The Big Fat Sunday Quiz — 25 questions, global leaderboard.</p>
         <span class="status live">Live</span>
+      </a>
+      <a class="card" href="https://www.instagram.com/wild.bluff/" target="_blank" rel="noopener">
+        <div class="thumb t-bluff" aria-hidden="true">
+          <div class="fan"><span class="c r"></span><span class="c y"></span><span class="c g"></span><span class="c b"></span><span class="c bw"></span></div>
+          <div class="shout">Bluff!</div>
+        </div>
+        <h3>Wild Bluff</h3>
+        <p>An original card game: play animals face down, lie, and catch your friends out.</p>
+        <span class="status proto">Playtesting</span>
       </a>
       <!-- TODO: replace # with your Plus 1 demo URL -->
       <a class="card" href="#" target="_blank" rel="noopener">
